@@ -1,0 +1,549 @@
+﻿@model IEnumerable<Restaurant.Models.Comanda>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create"  >Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Data)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Data)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User.UserId)
+                </td>
+                <td>
+                    <a  asp-action="Edit" asp-route-id="@item.ComandaId" >Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ComandaId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ComandaId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <title>Belli Siciliani</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/animate.css" rel="stylesheet">
+    <link href="assets/css/plugins.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="assets/font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/pe-icons.css" rel="stylesheet">
+
+</head>
+
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top fadeInDown">
+    <div class="container-fluid">
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navigation">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand smoothie" href="index.html">Belli <span class="theme-accent-color">Siciliani</span></a>
+
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="main-navigation">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="index.html" class="page-scroll">Acasa</a></li>
+                <li><a href="Meniu.html" class="page-scroll">Meniu</a></li>
+                <li><a href="ComandaOnline.html" class="page-scroll">Comanda Online</a></li>
+                <li><a href="Rezervari.html" class="page-scroll">Rezervari</a></li>
+                <li><a href="Evenimente.html" class="page-scroll">Evenimete</a></li>
+                <li><a href="DespreNoi.html" class="page-scroll">Despre noi</a></li>
+                <li><a href="Contact.html" class="page-scroll">Contact</a></li>
+                <li><a href="Login.html" class="page-scroll">Logare</a></li>
+
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center mb100">
+            <hr class="thin-hr">
+            <h2 class="mb50"><span class="heading-font text-uppercase white">Bauturi</span></h2>
+        </div>
+    </div>
+</div>
+<div class="shop-items">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <!-- Restaurant Item -->
+                <div class="item">
+                    <!-- Item's image -->
+                    <img src="assets/img/food/CocaCola.jpg" class="img-responsive">
+
+                    <!-- Item details -->
+                    <div class="item-dtls">
+                        <!-- product title -->
+                        <h4><span class="heading-font text-uppercase white " a href="#">Coca-Cola</a></h4>
+                        <!-- price -->
+                        <span class="price lblue white ">6 Lei</span>
+                    </div>
+                    <!-- add to cart btn -->
+                    <div class="ecom bg-lblue">
+                        <a class="btn" href="#">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <!-- Restaurant Item -->
+                <div class="item">
+                    <!-- Item's image -->
+                    <img src="assets/img/food/Fanta.jpg" class="img-responsive">
+
+                    <!-- Item details -->
+                    <div class="item-dtls">
+                        <!-- product title -->
+                        <h4><span class="heading-font text-uppercase white " a href="#">Fanta</a></h4>
+                        <!-- price -->
+                        <span class="price lblue white ">6 Lei</span>
+
+                    </div>
+                    <!-- add to cart btn -->
+                    <div class="ecom bg-lblue">
+                        <a class="btn" href="#">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <!-- Restaurant Item -->
+                <div class="item">
+                    <!-- Item's image -->
+                    <img src="assets/img/food/Sprite.jpg" class="img-responsive">
+                    <!-- Item details -->
+                    <div class="item-dtls">
+                        <!-- product title -->
+                        <h4><span class="heading-font text-uppercase white " a href="#">Sprite</a></h4>
+
+                        <!-- price -->
+                        <span class="price lblue white ">5 Lei</span>
+
+                    </div>
+                    <!-- add to cart btn -->
+                    <div class="ecom bg-lblue">
+                        <a class="btn" href="#">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <!-- Restaurant Item -->
+                <div class="item">
+                    <!-- Item's image -->
+                    <img src="assets/img/food/Cotnari.jpg" class="img-responsive">
+                    <!-- Item details -->
+                    <div class="item-dtls">
+                        <!-- product title -->
+                        <h4><span class="heading-font text-uppercase white " a href="#">Cotnari</a></h4>
+                        <!-- price -->
+                        <span class="price lblue white ">12 Lei</span>
+                    </div>
+                    <!-- add to cart btn -->
+                    <div class="ecom bg-lblue">
+                        <a class="btn" href="#">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb100">
+                    <hr class="thin-hr">
+                    <h2 class="mb50"><span class="heading-font text-uppercase white">Fel Principal</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="shop-items">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <!-- Restaurant Item -->
+                        <div class="item">
+                            <!-- Item's image -->
+                            <img src="assets/img/food/meal4.jpg" class="img-responsive">
+
+                            <!-- Item details -->
+                            <div class="item-dtls">
+                                <!-- product title -->
+                                <h4><span class="heading-font text-uppercase white " a href="#">Ceafa de porc</a></h4>
+                                <!-- price -->
+                                <span class="price lblue white ">26 Lei</span>
+                            </div>
+                            <!-- add to cart btn -->
+                            <div class="ecom bg-lblue">
+                                <a class="btn" href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <!-- Restaurant Item -->
+                        <div class="item">
+                            <!-- Item's image -->
+                            <img src="assets/img/food/meal6.jpg" class="img-responsive">
+
+                            <!-- Item details -->
+                            <div class="item-dtls">
+                                <!-- product title -->
+                                <h4><span class="heading-font text-uppercase white " a href="#">Piept de rata</a></h4>
+                                <!-- price -->
+                                <span class="price lblue white ">34 Lei</span>
+
+                            </div>
+                            <!-- add to cart btn -->
+                            <div class="ecom bg-lblue">
+                                <a class="btn" href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <!-- Restaurant Item -->
+                        <div class="item">
+                            <!-- Item's image -->
+                            <img src="assets/img/food/meal2.jpg" class="img-responsive">
+                            <!-- Item details -->
+                            <div class="item-dtls">
+                                <!-- product title -->
+                                <h4><span class="heading-font text-uppercase white " a href="#">Musaca</a></h4>
+
+                                <!-- price -->
+                                <span class="price lblue white ">30 Lei</span>
+
+                            </div>
+                            <!-- add to cart btn -->
+                            <div class="ecom bg-lblue">
+                                <a class="btn" href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-6">
+                        <!-- Restaurant Item -->
+                        <div class="item">
+                            <!-- Item's image -->
+                            <img src="assets/img/food/meal3.jpg" class="img-responsive">
+                            <!-- Item details -->
+                            <div class="item-dtls">
+                                <!-- product title -->
+                                <h4><span class="heading-font text-uppercase white " a href="#">Pizza Taraneasca</a></h4>
+                                <!-- price -->
+                                <span class="price lblue white ">24 Lei</span>
+                            </div>
+                            <!-- add to cart btn -->
+                            <div class="ecom bg-lblue">
+                                <a class="btn" href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12 text-center mb100">
+                            <hr class="thin-hr">
+                            <h2 class="mb50"><span class="heading-font text-uppercase white">Paste</span></h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <!-- Restaurant Item -->
+                        <div class="item">
+                            <!-- Item's image -->
+                            <img src="assets/img/food/Carbonara.jpg" class="img-responsive">
+                            <!-- Item details -->
+                            <div class="item-dtls">
+                                <!-- product title -->
+                                <h4><span class="heading-font text-uppercase white " a href="#">Carbonara</a></h4>
+                                <!-- price -->
+                                <span class="price lblue white ">18 Lei</span>
+
+                            </div>
+                            <!-- add to cart btn -->
+                            <div class="ecom bg-lblue">
+                                <a class="btn" href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <!-- Restaurant Item -->
+                        <div class="item">
+                            <!-- Item's image -->
+                            <img src="assets/img/food/Bolognese.jpg" class="img-responsive">
+                            <!-- Item details -->
+                            <div class="item-dtls">
+                                <!-- product title -->
+                                <h4><span class="heading-font text-uppercase white " a href="#">Bolognese</a></h4>
+                                <!-- price -->
+                                <span class="price lblue white ">23 Lei</span>
+
+                            </div>
+                            <!-- add to cart btn -->
+                            <div class="ecom bg-lblue">
+                                <a class="btn" href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <!-- Restaurant Item -->
+                        <div class="item">
+                            <!-- Item's image -->
+                            <img src="assets/img/food/Arrabbiata.jpg" class="img-responsive">
+                            <!-- Item details -->
+                            <div class="item-dtls">
+                                <!-- product title -->
+                                <h4><span class="heading-font text-uppercase white " a href="#">Arrabbiata</a></h4>
+                                <!-- price -->
+                                <span class="price lblue white ">20 Lei</span>
+                            </div>
+                            <!-- add to cart btn -->
+                            <div class="ecom bg-lblue">
+                                <a class="btn" href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <!-- Restaurant Item -->
+                        <div class="item">
+                            <!-- Item's image -->
+                            <img src="assets/img/food/Tonna.jpg" class="img-responsive">
+                            <!-- Item details -->
+                            <div class="item-dtls">
+                                <!-- product title -->
+                                <h4><span class="heading-font text-uppercase white " a href="#">Tonna</a></h4>
+                                <!-- price -->
+                                <span class="price lblue white ">22 Lei</span>
+                            </div>
+                            <!-- add to cart btn -->
+                            <div class="ecom bg-lblue">
+                                <a class="btn" href="#">Add to cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb100">
+                    <hr class="thin-hr">
+                    <h2 class="mb50"><span class="heading-font text-uppercase white">Pizza</span></h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <!-- Restaurant Item -->
+                <div class="item">
+                    <!-- Item's image -->
+                    <img src="assets/img/food/Casei.jpg" class="img-responsive">
+                    <!-- Item details -->
+                    <div class="item-dtls">
+                        <!-- product title -->
+                        <h4><span class="heading-font text-uppercase white " a href="#">Casei</a></h4>
+                        <!-- price -->
+                        <span class="price lblue white ">21 Lei</span>
+
+                    </div>
+                    <!-- add to cart btn -->
+                    <div class="ecom bg-lblue">
+                        <a class="btn" href="#">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <!-- Restaurant Item -->
+                <div class="item">
+                    <!-- Item's image -->
+                    <img src="assets/img/food/Diavola.jpg" class="img-responsive">
+                    <!-- Item details -->
+                    <div class="item-dtls">
+                        <!-- product title -->
+                        <h4><span class="heading-font text-uppercase white " a href="#">Diavola</a></h4>
+                        <!-- price -->
+                        <span class="price lblue white ">24 Lei</span>
+
+                    </div>
+                    <!-- add to cart btn -->
+                    <div class="ecom bg-lblue">
+                        <a class="btn" href="#">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <!-- Restaurant Item -->
+                <div class="item">
+                    <!-- Item's image -->
+                    <img src="assets/img/food/Romana.jpg" class="img-responsive">
+                    <!-- Item details -->
+                    <div class="item-dtls">
+                        <!-- product title -->
+                        <h4><span class="heading-font text-uppercase white " a href="#">Romana</a></h4>
+                        <!-- price -->
+                        <span class="price lblue white ">21 Lei</span>
+                    </div>
+                    <!-- add to cart btn -->
+                    <div class="ecom bg-lblue">
+                        <a class="btn" href="#">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <!-- Restaurant Item -->
+                <div class="item">
+                    <!-- Item's image -->
+                    <img src="assets/img/food/Calzone.jpg" class="img-responsive">
+                    <!-- Item details -->
+                    <div class="item-dtls">
+                        <!-- product title -->
+                        <h4><span class="heading-font text-uppercase white " a href="#">Calzone</a></h4>
+                        <!-- price -->
+                        <span class="price lblue white ">25 Lei</span>
+                    </div>
+                    <!-- add to cart btn -->
+                    <div class="ecom bg-lblue">
+                        <a class="btn" href="#">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center mb100">
+            <hr class="thin-hr">
+            <h2 class="mb50"><span class="heading-font text-uppercase white">Deserturi</span></h2>
+        </div>
+    </div>
+</div>
+<div class="shop-items">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-sm-6">
+                <!-- Restaurant Item -->
+                <div class="item">
+                    <!-- Item's image -->
+                    <img src="assets/img/food/Papanasi.jpg" class="img-responsive">
+
+                    <!-- Item details -->
+                    <div class="item-dtls">
+                        <!-- product title -->
+                        <h4><span class="heading-font text-uppercase white " a href="#">Papanasi</a></h4>
+                        <!-- price -->
+                        <span class="price lblue white ">12 Lei</span>
+                    </div>
+                    <!-- add to cart btn -->
+                    <div class="ecom bg-lblue">
+                        <a class="btn" href="#">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <!-- Restaurant Item -->
+                <div class="item">
+                    <!-- Item's image -->
+                    <img src="assets/img/food/Cheesecake.jpg" class="img-responsive">
+
+                    <!-- Item details -->
+                    <div class="item-dtls">
+                        <!-- product title -->
+                        <h4><span class="heading-font text-uppercase white " a href="#">Cheesecake</a></h4>
+                        <!-- price -->
+                        <span class="price lblue white ">18 Lei</span>
+
+                    </div>
+                    <!-- add to cart btn -->
+                    <div class="ecom bg-lblue">
+                        <a class="btn" href="#">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <!-- Restaurant Item -->
+                <div class="item">
+                    <!-- Item's image -->
+                    <img src="assets/img/food/Clatite.jpg" class="img-responsive">
+                    <!-- Item details -->
+                    <div class="item-dtls">
+                        <!-- product title -->
+                        <h4><span class="heading-font text-uppercase white " a href="#">Clatite</a></h4>
+
+                        <!-- price -->
+                        <span class="price lblue white ">9 Lei</span>
+
+                    </div>
+                    <!-- add to cart btn -->
+                    <div class="ecom bg-lblue">
+                        <a class="btn" href="#">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <!-- Restaurant Item -->
+                <div class="item">
+                    <!-- Item's image -->
+                    <img src="assets/img/food/Savarina.jpg" class="img-responsive">
+                    <!-- Item details -->
+                    <div class="item-dtls">
+                        <!-- product title -->
+                        <h4><span class="heading-font text-uppercase white " a href="#">Savarina</a></h4>
+                        <!-- price -->
+                        <span class="price lblue white ">6 Lei</span>
+                    </div>
+                    <!-- add to cart btn -->
+                    <div class="ecom bg-lblue">
+                        <a class="btn" href="#">Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        
+
+</html>
